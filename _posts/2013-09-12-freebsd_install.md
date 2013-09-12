@@ -14,67 +14,63 @@ share: true
 
 ### 配置网卡
 
-~~~ sh
+{% highlight sh %}
 /etc/rc.conf
 hostname="freebsd"
 ifconfig_re0=" inet 192.168.10.1 netmask 255.255.255.0"
 # Wireless config
 wlans_run0="wlan0"
 ifconfig_wlan0="WPA DHCP"
-~~~~
+{% endhighlight %}
 
 #### 无线网卡
 
-~~~ sh
+{% highlight sh %}
 /etc/wpa_supplicant.conf 
 network={
   ssid="TP-LINK_xx"
   psk="xxxxxxxxx"
 }
-~~~
+{% endhighlight %}
 
 重启
 
-~~~ sh
+{% highlight sh %}
 etc/rc.d/netif start
-~~~
+{% endhighlight %}
 
 ###配置sshd
 
-~~~ sh
+{% highlight sh %}
 /etc/ssh/sshd_config
 PermitRootLogin yes
 PasswordAuthentication yes
-~~~
+{% endhighlight %}
 
 重启
 
-~~~ sh
+{% highlight sh %}
 etc/rc.d/sshd start
-~~~
+{% endhighlight %}
 
 ###升级freebsd
 
-~~~ sh
+{% highlight sh %}
 freebsd-update fetch
 freebsd-update install
-~~~
+{% endhighlight %}
 
 ###安装port
 
-~~~ sh
+{% highlight sh %}
 portsnap fetch extract update 
-~~~
+{% endhighlight %}
 
 使用axel加速port
 
-~~~ sh
-make install clean
-~~~
-
 修改
 
-~~~ sh
+{% highlight sh %}
 #vi /etc/make.conf
 
   FETCH_CMD=axel -a
@@ -90,13 +86,39 @@ make install clean
   ftp://ftp.hk.freebsd.org/pub/FreeBSD/ports/distfiles /
 
   ftp://ftp.freebsdchina.org/pub/FreeBSD/ports/distfiles / 
-~~~
+{% endhighlight %}
 
 修改vi /usr/local/etc/axelrc 
 
-~~~ sh
+{% highlight sh %}
 num_connections = 10 
-~~~
+{% endhighlight %}
 
+###安装
 
-安装 bash vim ruby mongo nigix
+查找
+
+{% highlight sh %}
+echo /usr/ports/*/*/port_name
+{% endhighlight %}
+
+安装
+
+{% highlight sh %}
+make install clean
+{% endhighlight %}
+
+常用 bash vim ruby mongo nigix
+
+修改 bash
+
+{% highlight sh %}
+chsh -s /usr/local/bin/bash
+{% endhighlight %}
+
+同步时间
+
+{% highlight sh %}
+ntpdate nist1.symmetricom.com
+{% endhighlight %}
+
