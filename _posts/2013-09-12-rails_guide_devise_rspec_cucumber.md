@@ -19,7 +19,7 @@ share: true
 
 ####gem
 
-~~~ ruby
+{% highlight ruby %}
 gem 'rspec-rails', :group => [:development, :test]
 
 group :test do
@@ -27,40 +27,40 @@ group :test do
   gem 'factory_girl_rails'
   gem 'mongoid-rspec'
 end
-~~~
+{% endhighlight %}
 
 ####生成Rspec
 
-~~~ sh
+{% highlight sh %}
 rails g rspec:install
-~~~
+{% endhighlight %}
 
 生成.rspec 和spec/spec_helper.rb文件
 
 注释spec_helper文件中用于ActiveRecord的部分, 以及
 
-~~~ ruby
+{% highlight ruby %}
 # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 # config.use_transactional_fixtures = true
-~~~
+{% endhighlight %}
 
 删除test文件夹, Rspec不需要
 
 默认情况下 rails生成器(rails generate controller/scaffold )为view和helper生成spec文件, 如果不测试views和helpers, 可以关闭之
 
-~~~ ruby
+{% highlight ruby %}
 class Application < Rails::Application
   config.generators do |g|
     g.view_specs false
     g.helper_specs false
   end
-~~~
+{% endhighlight %}
 
 ####数据清理database_cleaner
 
 每次测试之前需要清理数据库, 配置spec_helper
 
-~~~ ruby
+{% highlight ruby %}
 RSpec.configure do |config|
   # Other things
 
@@ -75,17 +75,17 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
-~~~
+{% endhighlight %}
 
 ####RSpec适配器 mongoid-rspec
 
 方便测试mongoid的校验器, 新增 spec/support/mongoid.rb
 
-~~~ ruby
+{% highlight ruby %}
 RSpec.configure do |config|
   config.include Mongoid::Matchers
 end
-~~~
+{% endhighlight %}
 
 建议使用Cucumber, 减少对ORM的依赖
 
@@ -99,37 +99,37 @@ end
 
 配置 spec/support/devise.rb
 
-~~~ ruby
+{% highlight ruby %}
 RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
 end
-~~~
+{% endhighlight %}
 
 ### 运行
 
 运行测试
 
-~~~ sh
+{% highlight sh %}
 rake spec
-~~~
+{% endhighlight %}
 
 ### Cucumber BDD
 
 ####gem
 
-~~~ ruby
+{% highlight ruby %}
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
   gem 'database_cleaner'
 end
-~~~
+{% endhighlight %}
 
 生成Cucumber的必要文件 config/cucumber.yml script/cucumber features/support/env.rb lib/tasks/cucumber.rake 
 
-~~~ sh
+{% highlight sh %}
 rails generate cucumber:install --capybara --rspec --skip-database
-~~~
+{% endhighlight %}
 
 --capybara 指定Capybara替代默认的Webrat来接收测试, 
 
@@ -141,20 +141,20 @@ rails generate cucumber:install --capybara --rspec --skip-database
 
 修改 feature/support/env.rb
 
-~~~ ruby
+{% highlight ruby %}
 begin
   DatabaseCleaner.orm = 'mongoid'
   DatabaseCleaner.strategy = :truncation
 rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
-~~~
+{% endhighlight %}
 
 ####运行
 
-~~~ sh
+{% highlight sh %}
 rake cucumber
-~~~
+{% endhighlight %}
 
 ####Cucmber用例
 
@@ -167,9 +167,9 @@ rake cucumber
 
 ###配置ActionMailer
 
-~~~ sh
+{% highlight sh %}
 rails g figaro:install
-~~~
+{% endhighlight %}
 
 生成 config/application.yml, 并设置.gitignore
 
@@ -177,7 +177,7 @@ rails g figaro:install
 
 在config/environments/production.rb 和 config/environments/development.rb中分别设置
 
-~~~ ruby
+{% highlight ruby %}
   # config.action_mailer.raise_delivery_errors = false # for production
   config.action_mailer.raise_delivery_errors = false # for development
 
@@ -190,13 +190,13 @@ rails g figaro:install
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
   }
-~~~
+{% endhighlight %}
 
 ### 配置devise鉴权
 
-~~~ sh
+{% highlight sh %}
 rails g devise:install
-~~~
+{% endhighlight %}
 
 生成 config/initializers/devise.rb 和 config/locales/devise.en.yml
 
@@ -204,15 +204,15 @@ devise自动识别mongoid
 
 在config/environments/production.rb 和 config/environments/development.rb中设置default_url_options
 
-~~~ ruby
+{% highlight ruby %}
 config.action_mailer.default_url_options = { :host => 'localhost:3000' } # set to host.com at production
-~~~
+{% endhighlight %}
 
 ####自动生成model
 
-~~~ sh
+{% highlight sh %} 
 rails g devise User
-~~~
+{% endhighlight %}
 
 创建 app/model/user.rb 和 spec/model/suser_spec.rb spec/factories/users.rb, 修改路由 devise_for :users
 
@@ -222,18 +222,18 @@ devise默认使用DELETE做sign out请求, Cucumber使用GET测试, 需要修改
 
 修改 config/initializer/devise.rb
 
-~~~ ruby
+{% highlight ruby %}
 # The default HTTP method used to sign out a resource. Default is :delete.
 config.sign_out_via = Rails.env.test? ? :get : :delete
-~~~
+{% endhighlight %}
 
 password不记日志
 
 修改app/application.rb 
 
-~~~ ruby
+{% highlight ruby %}
   config.filter_parameters += [:password, :password_confirmation]
-~~~
+{% endhighlight %}
 
 ### 自定义修改部分
 
@@ -241,9 +241,9 @@ password不记日志
 
 执行
 
-~~~ sh
-rails g devise:view
-~~~
+{% highlight sh %}
+rails g devise:views
+{% endhighlight %}
 
 生成view在修改之
 
