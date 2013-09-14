@@ -3,7 +3,7 @@ layout: post
 title: Rails练习(Devise,RSpec,Cucumber)
 description: "rails demo, use devise with rspec and cucumber."
 modified: 2013-09-12
-tags: [railsdemo]
+tags: [rails]
 image:
   feature: abstract-6.jpg
 comments: true

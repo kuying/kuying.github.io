@@ -3,7 +3,7 @@ layout: post
 title: freebsd安装
 description: "重新安装freebsd, 备忘"
 modified: 2013-09-12
-tags: [os]
+tags: [freebsd]
 image:
   feature: abstract-4.jpg
 comments: true

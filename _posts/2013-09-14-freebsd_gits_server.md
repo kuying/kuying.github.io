@@ -3,7 +3,7 @@ layout: post
 title: freebsd架设git服务器
 description: "架设git服务器"
 modified: 2013-09-14
-tags: [os]
+tags: [freebsd]
 image:
   feature: abstract-7.jpg
 comments: true
