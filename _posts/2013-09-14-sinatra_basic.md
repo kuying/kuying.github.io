@@ -503,6 +503,8 @@ find_template 硬盘能够与在render是查找模板, 不常用
 
 ### 配置
 
+application级别, 使用 set enable disable 方法, 支持 Proc
+
 {% highlight ruby %}
 configure :XXX do
   # setting one option
@@ -553,7 +555,8 @@ add_charsets
 
 app_file
 
-	主应用文件，用来检测项目的根路径， views和public文件夹和内联模板。
+	主应用文件，用来检测项目的根路径，用来计算默认的:root :public_folder :views
+	set :app_file, __FILE__
 
 bind
 
@@ -569,11 +572,11 @@ dump_errors
 
 environment
 
-	当前环境，默认是 ENV['RACK_ENV']， 或者 "development" 如果不可用。
+	当前环境，默认是 ENV['RACK_ENV']， 不可用则为 "development" 。
 
 logging
 
-	使用logger
+	使用logger, 默认STRERR 可以使用Rack::CommonLogger
 
 lock
 
@@ -598,7 +601,8 @@ protection
 
 public_folder, public_dir
 
-	public文件夹的位置。
+	public文件夹的位置
+	默认时root下的public目录, 通常设置为root的相对路径 set :public_folder, Proc.new { File.join(root, "static") }
 
 reload_templates
 
@@ -606,16 +610,20 @@ reload_templates
 
 root
 
-	项目的根目录。
+	项目的根目录。默认是包含主文件的目录, 常用来设置默认的:public_folder和:views
+	在主文件中直接设置 set :root, File.dirname(__FILE__)
 
 raise_errors
 
 	抛出异常（应用会停下）。
+	关闭后, 异常会rescued并映射到错误处理, 通常是返回5xx的状态码
+	打开后, 异常被跑出到应用外, 可以由服务器或Rack中间件处理, 如Rack::ShowExceptions或Rack::MailExceptions
 
 run
 
-	如果启用，Sinatra会开启web服务器。 如果使用rackup或其他方式则不要启用。
-
+	如果启用，Sinatra会开启内置web服务器。 如果使用rackup或其他方式则不要启用。
+	默认值 检查 :app_file是否和$0匹配
+  
 running
 
 	内置的服务器在运行吗？ 不要修改这个设置！
@@ -630,11 +638,11 @@ sessions
 
 show_exceptions
 
-	在浏览器中显示一个stack trace。
+	在浏览器中显示一个stack trace。默认在development环境中打开
 
 static
 
-	Sinatra是否处理静态文件。 当服务器能够处理则禁用。 禁用会增强性能。 默认开启。
+	Sinatra是否处理静态文件(public目录下)。 当服务器能够处理则禁用。 禁用会增强性能。 默认开启。
 
 static_cache_control
 
@@ -646,7 +654,7 @@ threaded
 
 views
 
-	views 文件夹。
+	views 文件夹。设置同public_folder
 
 x_cascade
 
