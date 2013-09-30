@@ -3,9 +3,9 @@ layout: post
 title: Rack基础
 description: "rack学习笔记"
 modified: 2013-09-14
-tags: [sinatra, web]
+tags: [sinatra]
 image:
-  feature: abstract-8.jpg
+  feature: texture-feature-04.jpg
 comments: true
 share: true
 ---

@@ -3,9 +3,9 @@ layout: post
 title: sinatra使用rspec测试
 description: "sinatra测试, rspec"
 modified: 2013-09-25
-tags: [sinatra, web]
+tags: [sinatra]
 image:
-  feature: abstract-1.jpg
+  feature: texture-feature-05.jpg
 comments: true
 share: true
 ---

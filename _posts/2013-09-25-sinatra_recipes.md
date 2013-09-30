@@ -3,9 +3,9 @@ layout: post
 title: sinatra_recipes
 description: "sinatra, recipes"
 modified: 2013-09-25
-tags: [sinatra, web]
+tags: [sinatra]
 image:
-  feature: abstract-3.jpg
+  feature: texture-feature-04.jpg
 comments: true
 share: true
 ---

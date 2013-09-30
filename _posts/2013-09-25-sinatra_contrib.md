@@ -3,9 +3,9 @@ layout: post
 title: sinatra_contrib扩展
 description: "sinatra, contrib"
 modified: 2013-09-25
-tags: [sinatra, web]
+tags: [sinatra]
 image:
-  feature: abstract-2.jpg
+  feature: texture-feature-03.jpg
 comments: true
 share: true
 ---

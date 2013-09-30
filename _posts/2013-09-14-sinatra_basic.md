@@ -3,9 +3,9 @@ layout: post
 title: sinatra基础
 description: "初学sinatra笔记"
 modified: 2013-09-14
-tags: [sinatra, web]
+tags: [sinatra]
 image:
-  feature: abstract-8.jpg
+  feature: texture-feature-05.jpg
 comments: true
 share: true
 ---

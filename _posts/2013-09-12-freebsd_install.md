@@ -5,7 +5,7 @@ description: "重新安装freebsd, 备忘"
 modified: 2013-09-12
 tags: [freebsd]
 image:
-  feature: abstract-4.jpg
+  feature: texture-feature-01.jpg
 comments: true
 share: true
 ---

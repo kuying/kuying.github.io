@@ -5,7 +5,7 @@ description: "bootstrap"
 modified: 2013-09-26
 tags: [web]
 image:
-  feature: abstract-9.jpg
+  feature: texture-feature-01.jpg
 comments: true
 share: true
 ---

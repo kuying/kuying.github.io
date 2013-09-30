@@ -5,7 +5,7 @@ description: "rails demo, use devise with rspec and cucumber."
 modified: 2013-09-12
 tags: [rails]
 image:
-  feature: abstract-6.jpg
+  feature: texture-feature-02.jpg
 comments: true
 share: true
 ---

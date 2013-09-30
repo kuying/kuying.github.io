@@ -5,7 +5,7 @@ description: "架设git服务器"
 modified: 2013-09-14
 tags: [freebsd]
 image:
-  feature: abstract-7.jpg
+  feature: texture-feature-03.jpg
 comments: true
 share: true
 ---
