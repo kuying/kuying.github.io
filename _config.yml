@@ -1,42 +1,42 @@
-title:            kuying的Blog
-description:      使用jekyll在Github.com上搭建的个人博客.
-disqus_shortname: 
+title:            kuying的博客
+tagline:          学习笔记, 心情点滴
+description:      Describe your website.
 #Comment out url when working locally to resolve base urls correctly
-url:              http://kuying.github.io
-#url:              http://localhost:4000
+url:              http://localhost:4000
 
 # Owner/author information
 owner:
   name:           kuying
-  avatar:         avatar.png
-  bio:            "这里记录我的读书笔记, 编程感悟, 软件随想, 与君共勉"
-  email:          kuying08@gmail.com
-  # Social networking links used in footer. Update and remove as you like.
+  avatar:         bio-photo.jpg
+  bio:            "关注web前沿"
+  email:          kuying08@email.com
+  # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter:        
   facebook:       
-  github:         kuying
-  stackexchange:  
+  github:         
   linkedin:       
   instagram:      
-  flickr:         
+  lastfm:         
   tumblr:         
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:   
+  google_plus:    
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   UA-43875251-1
 google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
+bing_verify:        
 
 # Links to include in top navigation
 # For external links add external: true
 links:
-  - title: Theme Setup
-    url: /theme-setup
-  - title: External Link
-    url: http://mademistakes.com
-    external: true
+  - title: 关于我
+    url: /about
+  - title: 我的文章
+    url: /articles
+  - title: 文章分类
+    url: /tags  
+    external: false
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Asia/Shanghai
@@ -48,17 +48,17 @@ markdown:    kramdown
 permalink:   /:categories/:title
 
 # Amount of post to show on home page
-paginate: 5
+paginate: 8
 
 kramdown:
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: true
+  use_coderay: false
 
   coderay:
-    coderay_line_numbers: nil
+    coderay_line_numbers: 
     coderay_line_numbers_start: 1
     coderay_tab_width: 4
     coderay_bold_every: 10
