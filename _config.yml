@@ -2,7 +2,7 @@ title:            kuying的博客
 tagline:          学习笔记, 心情点滴
 description:      Describe your website.
 #Comment out url when working locally to resolve base urls correctly
-url:              http://kuying.github.io/
+url:              http://kuying.github.io
 
 # Owner/author information
 owner:
@@ -41,7 +41,7 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Asia/Shanghai
 future:      true
-pygments:    true
+highlighter: pygments
 markdown:    kramdown
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
